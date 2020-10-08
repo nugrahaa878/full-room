@@ -1,4 +1,4 @@
-# FUll-Room
+# Full-Room
 
 Developed by Gold's Gym Team:
 - Adrian Wijaya (1806205363)
