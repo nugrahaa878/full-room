@@ -10,7 +10,7 @@
 </head>
 <body>
     <h2>Full-Room</h2>
-    <form method="POST">
+    <form method="POST">{% csrf_token %}
         Lebar Ruangan (x): <input type="text" name="x-width">
         Panjang Ruangan (y): <input type="text" name="y-length">
         <input type="submit" value="SUBMIT">

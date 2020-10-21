@@ -15,3 +15,7 @@ def index(request):
 # Simple map generator
 def random_map_generator(panjang, lebar):
     return [[random.randint(0,1) for i in range(panjang)] for j in range(lebar)]
+
+# CSP algorithm
+def csp():
+    pass
