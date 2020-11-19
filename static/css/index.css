@@ -33,3 +33,34 @@ body {
     margin-top: 20px;
     padding: 5px 42px;
 }
+
+.step1-container, .step2-container {
+    margin-top: 70px;
+}
+
+.panah {
+    width: 40px;
+    display: block !important;
+}
+
+.step1-text, .step2-text {
+    font-weight: bolder;
+    font-size: 40px;
+    margin-left: 20px;
+}
+
+.step1-desc, .step2-desc {
+    margin-top: 30px;
+    size: 10px;
+    font-weight: bold;
+}
+
+.form-control {
+    border: 2px solid black;
+    margin-top: 20px;
+}
+
+::placeholder {
+    color: #207DBE !important;
+    text-align: center;
+}
