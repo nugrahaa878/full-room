@@ -1,4 +1,4 @@
-<img src="./fullroom/static/assets/LOGO-fullroom.jpg" width="300" height="300"/>
+<img src="./static/assets/LOGO-fullroom.jpg" width="300" height="300"/>
 
 # Full-Room
 
