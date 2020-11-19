@@ -1,0 +1,35 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.main-logo {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin-top: 100px;
+}
+
+.description-container {
+    margin-top:50px;
+}
+
+.description-text {
+    text-align: center;
+}
+
+.my-button {
+    border-radius: 5px;
+    background-color: transparent;
+    color: #207DBE;
+    font-weight: bold   ;
+    padding: 5px 40px;
+}
+
+.button-about {
+    margin-top: 15px;
+}
+
+.button-start {
+    margin-top: 20px;
+    padding: 5px 42px;
+}
