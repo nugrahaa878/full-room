@@ -7,6 +7,7 @@ body {
     max-width: 400px;
     height: auto;
     margin-top: 100px;
+    padding: 0 30px
 }
 
 .description-container {
@@ -15,13 +16,14 @@ body {
 
 .description-text {
     text-align: center;
+    padding: 0 10px;
 }
 
 .my-button {
     border-radius: 5px;
     background-color: transparent;
     color: #207DBE;
-    font-weight: bold   ;
+    font-weight: bold;
     padding: 5px 40px;
 }
 
@@ -34,25 +36,23 @@ body {
     padding: 5px 42px;
 }
 
-.step1-container, .step2-container {
-    margin-top: 70px;
-}
-
-.panah {
+.panah-1, .panah-2 {
     width: 40px;
-    display: block !important;
+    display: none;
 }
 
 .step1-text, .step2-text {
     font-weight: bolder;
     font-size: 40px;
     margin-left: 20px;
+    display: none;
 }
 
 .step1-desc, .step2-desc {
     margin-top: 30px;
     size: 10px;
     font-weight: bold;
+    display: none;
 }
 
 .form-control {
@@ -63,4 +63,15 @@ body {
 ::placeholder {
     color: #207DBE !important;
     text-align: center;
+}
+
+.form-1, .form-2 {
+    display: none;
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .description-text {
+        padding: 0 240px;
+    }
 }
