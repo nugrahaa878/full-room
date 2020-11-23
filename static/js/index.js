@@ -5,6 +5,21 @@ $(document).ready(function () {
         showStepOne();
     });
 
+    $(".step-1-back").click(function () {
+        hideStepOne();
+        showHomePage();
+    });
+
+    $(".step-1-next").click(function() {
+        hideStepOne();
+        showStepTwo();
+    });
+
+    $(".step-2-back").click(function() {
+        hideStepTwo();
+        showStepOne();
+    });
+
 });
 
 function hideStepOne() {
@@ -12,6 +27,7 @@ function hideStepOne() {
     $(".step1-text").hide();
     $(".step1-desc").hide();
     $(".form-1").hide();
+    $(".nav-step-1").hide();
 }
 
 function showStepOne() {
@@ -19,6 +35,7 @@ function showStepOne() {
     $(".step1-text").show();
     $(".step1-desc").show();
     $(".form-1").show();
+    $(".nav-step-1").show();
 }
 
 function hideStepTwo() {
@@ -26,10 +43,23 @@ function hideStepTwo() {
     $(".step2-text").hide();
     $(".step2-desc").hide();
     $(".form-2").hide();
+    $(".nav-step-2").hide();
+}
+
+function showStepTwo() {
+    $(".panah-2").show();
+    $(".step2-text").show();
+    $(".step2-desc").show();
+    $(".form-2").show();
+    $(".nav-step-2").show();
 }
 
 function hideHomePage() {
     $(".description-text").hide();
     $(".my-button").hide();
+}
 
+function showHomePage() {
+    $(".description-text").show();
+    $(".my-button").show();
 }

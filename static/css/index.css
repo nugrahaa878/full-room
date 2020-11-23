@@ -69,6 +69,24 @@ body {
     display: none;
 }
 
+.nav-step-1, .nav-step-2 {
+    display: none;
+    margin-top: 10px;
+    width: 45%;
+}
+
+.nav-step-1-container, .nav-step-2-container {
+    text-align: center;
+}
+
+.step2-form {
+    padding: 0 30px;
+}
+
+.step2-desc {
+    text-align: center;
+}
+
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
     .description-text {
