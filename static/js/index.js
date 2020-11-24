@@ -10,12 +10,12 @@ $(document).ready(function () {
         showHomePage();
     });
 
-    $(".step-1-next").click(function() {
+    $(".step-1-next").click(function () {
         hideStepOne();
         showStepTwo();
     });
 
-    $(".step-2-back").click(function() {
+    $(".step-2-back").click(function () {
         hideStepTwo();
         showStepOne();
     });

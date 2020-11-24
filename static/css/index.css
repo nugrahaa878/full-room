@@ -1,95 +1,113 @@
 body {
-    font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .main-logo {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    margin-top: 100px;
-    padding: 0 30px
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin-top: 100px;
+  padding: 0 30px;
 }
 
 .description-container {
-    margin-top:50px;
+  margin-top: 50px;
 }
 
 .description-text {
-    text-align: center;
-    padding: 0 10px;
+  text-align: center;
+  padding: 0 10px;
 }
 
 .my-button {
-    border-radius: 5px;
-    background-color: transparent;
-    color: #207DBE;
-    font-weight: bold;
-    padding: 5px 40px;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #207dbe;
+  font-weight: bold;
+  padding: 5px 40px;
 }
 
 .button-about {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .button-start {
-    margin-top: 20px;
-    padding: 5px 42px;
+  margin-top: 20px;
+  padding: 5px 42px;
 }
 
-.panah-1, .panah-2 {
-    width: 40px;
-    display: none;
+.panah-1,
+.panah-2 {
+  width: 40px;
+  display: none;
 }
 
-.step1-text, .step2-text {
-    font-weight: bolder;
-    font-size: 40px;
-    margin-left: 20px;
-    display: none;
+.step1-text,
+.step2-text {
+  font-weight: bolder;
+  font-size: 40px;
+  margin-left: 20px;
+  display: none;
 }
 
-.step1-desc, .step2-desc {
-    margin-top: 30px;
-    size: 10px;
-    font-weight: bold;
-    display: none;
+.step1-desc,
+.step2-desc {
+  margin-top: 30px;
+  size: 10px;
+  font-weight: bold;
+  display: none;
 }
 
 .form-control {
-    border: 2px solid black;
-    margin-top: 20px;
+  border: 2px solid black;
+  margin-top: 20px;
 }
 
 ::placeholder {
-    color: #207DBE !important;
-    text-align: center;
+  color: #207dbe !important;
+  text-align: center;
 }
 
-.form-1, .form-2 {
-    display: none;
+.form-1,
+.form-2 {
+  display: none;
 }
 
-.nav-step-1, .nav-step-2 {
-    display: none;
-    margin-top: 10px;
-    width: 45%;
+.nav-step-1,
+.nav-step-2 {
+  display: none;
+  margin-top: 10px;
+  width: 45%;
 }
 
-.nav-step-1-container, .nav-step-2-container {
-    text-align: center;
+.nav-step-1-container,
+.nav-step-2-container,
+.nav-board-container {
+  text-align: center;
 }
 
 .step2-form {
-    padding: 0 30px;
+  padding: 0 30px;
 }
 
 .step2-desc {
-    text-align: center;
+  text-align: center;
+}
+
+#board {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#board td {
+  border: 1px solid darkgrey;
+  width: 30px;
+  height: 30px;
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-    .description-text {
-        padding: 0 240px;
-    }
+  .description-text {
+    padding: 0 240px;
+  }
 }
