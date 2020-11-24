@@ -7,7 +7,7 @@ class CSP(object):
     total_person = 0
     healthy_people = 0
     sick_people = 0
-    remainding_people = 0
+    remaining_people = 0
     result = False
 
     def __init__(self, board, healthy_people, sick_people):
@@ -140,7 +140,7 @@ class CSP(object):
 
         self.board_answer = final_board
         self.total_person = max_total
-        self.remainding_people = self.healthy_people + self.sick_people - max_total
+        self.remaining_people = self.healthy_people + self.sick_people - max_total
         self.result = final_result
 
 
