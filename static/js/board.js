@@ -23,7 +23,7 @@ Board.prototype.makeGrid = function () {
         for (let c = 0; c < this.width; c++) {
             let node = `${r}-${c}`;
             let status = ["normal", "obstacle"].random();
-            curRow.push([node, status]);
+            curRow.push(status);
             curHTMLRow += `<td id="${node}" class="${status}" onclick="toggleBoard('${node}')"></td>`;
         }
         this.boardArr.push(curRow);

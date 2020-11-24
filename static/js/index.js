@@ -102,12 +102,18 @@ function createBoard() {
 
 function toggleBoard(position) {
     let element = $("#" + `${position}`);
+    let coordinates = position.split("-");
+    let r = parseInt(coordinates[0]);
+    let c = parseInt(coordinates[1]);
+
     if (element.hasClass("normal")) {
         element.removeClass("normal");
         element.addClass("obstacle");
+        board.boardArr[r][c] = "obstacle";
     }
     else {
         element.removeClass("obstacle");
         element.addClass("normal");
+        board.boardArr[r][c] = "normal";
     }
 }
