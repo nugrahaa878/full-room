@@ -81,7 +81,7 @@ body {
 }
 
 .nav-step-1-container,
-.nav-step-2-container {
+.nav-step-2-container{
   text-align: center;
 }
 
@@ -90,6 +90,11 @@ body {
 }
 
 .step2-desc {
+  text-align: center;
+}
+
+.board-button-container {
+  display: none;
   text-align: center;
 }
 

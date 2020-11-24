@@ -1,3 +1,5 @@
+let board;
+
 $(document).ready(function () {
 
     $(".button-start").click(function () {
@@ -22,6 +24,10 @@ $(document).ready(function () {
 
     $(".step-2-next").click(function () {
         validate();
+    });
+
+    $(".board-random").click(function () {
+        board.makeGrid();
     });
 
 });
@@ -51,6 +57,7 @@ function hideStepTwo() {
 }
 
 function showBoard() {
+    $(".board-button-container").show();
     $("#board").show();
 }
 
@@ -89,6 +96,6 @@ function validate() {
 function createBoard() {
     let height = $("#board-height").val();
     let width = $("#board-width").val();
-    let board = new Board(height, width);
+    board = new Board(height, width);
     board.init();
 }
