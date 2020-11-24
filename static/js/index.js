@@ -22,6 +22,11 @@ $(document).ready(function () {
         showStepOne();
     });
 
+    $(".btn-edit-size").click(function () {
+        hideBoard();
+        showStepOne();
+    })
+
     $(".step-2-next").click(function () {
         validate();
     });
@@ -59,6 +64,13 @@ function hideStepTwo() {
 function showBoard() {
     $(".board-button-container").show();
     $("#board").show();
+    $(".btn-edit-size").show();
+}
+
+function hideBoard() {
+    $(".board-button-container").hide();
+    $("#board").hide();
+    $(".btn-edit-size").hide();
 }
 
 function showStepTwo() {

@@ -96,8 +96,17 @@ body {
 .board-button-container {
   display: none;
   text-align: center;
+  margin-top: 20px;
 }
 
+.board-random {
+  margin-right: 10px;
+}
+
+.btn-edit-size {
+  margin-top: 15px;
+  margin-bottom: 100px;
+}
 #board {
   display: none;
   margin-left: 5px;
@@ -112,6 +121,10 @@ body {
 
 .obstacle {
   background-color: black;
+}
+
+.btn-edit-size {
+  display: none;
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
