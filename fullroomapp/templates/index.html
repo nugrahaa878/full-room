@@ -49,8 +49,8 @@
             <p class="step1-desc">Masukkan panjang dan lebar ruangan</p>
             <form action="" class="form-1">
                 <div class="form-group">
-                    <input type="number" class="form-control" id="" placeholder="Panjang">
-                    <input type="number" class="form-control" id="" placeholder="Lebar">
+                    <input type="number" class="form-control" id="board-height" placeholder="Panjang" required>
+                    <input type="number" class="form-control" id="board-width" placeholder="Lebar" required>
                 </div>
             </form>
             <div class="nav-step-1-container">
@@ -70,8 +70,8 @@
             <p class="step2-desc">Masukkan banyak orang yang akan masuk ke dalam ruangan</p>
             <form action="" class="form-2">
                 <div class="form-group">
-                    <input type="number" class="form-control" id="" placeholder="Normal">
-                    <input type="number" class="form-control" id="" placeholder="Besar">
+                    <input type="number" class="form-control" id="board-normal" placeholder="Normal" required>
+                    <input type="number" class="form-control" id="board-big" placeholder="Besar" required>
                 </div>
             </form>
             <div class="nav-step-2-container">
@@ -80,6 +80,7 @@
             </div>
         </div>
     </div>
+
 
     <div class="d-flex flex-column align-items-center board-container">
         <table id="board">

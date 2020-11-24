@@ -1,3 +1,5 @@
+import { validate } from "./form.js";
+
 $(document).ready(function () {
 
     $(".button-start").click(function () {
@@ -23,6 +25,7 @@ $(document).ready(function () {
     $(".step-2-next").click(function () {
         hideStepTwo();
         showBoard();
+        validate();
     });
 
 });

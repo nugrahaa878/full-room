@@ -21,8 +21,7 @@ $(document).ready(function () {
     });
 
     $(".step-2-next").click(function () {
-        hideStepTwo();
-        showBoard();
+        validate();
     });
 
 });
@@ -71,4 +70,18 @@ function hideHomePage() {
 function showHomePage() {
     $(".description-text").show();
     $(".my-button").show();
+}
+
+function validate() {
+    console.log($("#board-height").val())
+    if ($("#board-height").val() != "" &&
+        $("#board-width").val() != "" &&
+        $("#board-normal").val() != "" &&
+        $("#board-big").val() != "") {
+        hideStepTwo();
+        showBoard();
+    }
+    else {
+        alert("Pastikan semua data terisi terlebih dahulu.");
+    }
 }
