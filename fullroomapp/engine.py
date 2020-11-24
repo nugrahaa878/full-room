@@ -7,6 +7,7 @@ class CSP(object):
     total_person = 0
     healthy_people = 0
     sick_people = 0
+    remainding_people = 0
     result = False
 
     def __init__(self, board, healthy_people, sick_people):
@@ -113,7 +114,6 @@ class CSP(object):
         """
         Function untuk menjalankan alforitma CSP
         """
-
         board_length = len(self.board)
         start_point = [
             (0, 0),
@@ -140,23 +140,9 @@ class CSP(object):
 
         self.board_answer = final_board
         self.total_person = max_total
+        self.remainding_people = self.healthy_people + self.sick_people - max_total
         self.result = final_result
 
-def solve():
-    # example
-    board = [
-        list("#__"),
-        list("__#"),
-        list("###"),
-    ]
-
-    csp = CSP(board)
-    csp.run(2)
-
-    if csp.result == False: 
-        print("Solution does not exist")
-    else:
-        csp._print_solution()
 
 def solve_for_healthy(board, healthy_people, sick_people):
     csp = CSP(board, healthy_people, sick_people)
@@ -169,6 +155,3 @@ def solve_for_healthy(board, healthy_people, sick_people):
         csp._print_solution()
     
     return csp.board_answer
-    
-if __name__ == "__main__":
-    solve()
