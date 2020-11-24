@@ -13,19 +13,26 @@ Board.prototype.init = function () {
     this.makeGrid();
 }
 
+// Create grid with randomize obstacles
 Board.prototype.makeGrid = function () {
     let tableHTML = "";
+
     for (let r = 0; r < this.height; r++) {
         let curRow = [];
         let curHTMLRow = `<tr id="row ${r}">`;
         for (let c = 0; c < this.width; c++) {
             let node = `${r}-${c}`;
-            curRow.push(node);
-            curHTMLRow += `<td id="${node}"></td>`;
+            let status = ["normal", "obstacle"].random();
+            curRow.push([node, status]);
+            curHTMLRow += `<td id="${node}" class="${status}"></td>`;
         }
         this.boardArr.push(curRow);
         tableHTML += `${curHTMLRow}</tr>`;
     }
     let board = document.getElementById("board");
     board.innerHTML = tableHTML;
+}
+
+Array.prototype.random = function () {
+    return this[Math.floor((Math.random() * this.length))];
 }

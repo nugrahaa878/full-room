@@ -105,6 +105,10 @@ body {
   height: 30px;
 }
 
+.obstacle {
+  background-color: black;
+}
+
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
   .description-text {
