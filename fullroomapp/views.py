@@ -8,14 +8,25 @@ SAMPLE_MAP = [[0,0,0,1,1],
               [0,0,0,0,0],
               [1,0,0,0,0]]
 
-# Create your views here.
 def index(request):
-    return render(request, 'index.html', {'map': SAMPLE_MAP})
+    if request.method == 'POST':
+        map = base_map_generator(int(request.POST['x-width']),
+                int(request.POST['y-length']))
+                
+        # Until parsed later, this shows the resulting map onto the terminal
+        print(map)
+        return render(request, 'index.html', {'map': map})
 
-# Simple map generator
-def random_map_generator(panjang, lebar):
-    return [[random.randint(0,1) for i in range(panjang)] for j in range(lebar)]
+    return render(request, 'index.html')
 
-# CSP algorithm
-def csp():
-    pass
+# Base map generator
+def base_map_generator(width, length):
+    return set_invalid_tiles([['_' for i in range(width)] for j in range(length)])
+
+# Sets invalid tiles by setting their value to #
+def set_invalid_tiles(map):
+    for x in range(len(map)):
+        for y in range(len(map[x])):
+            if (random.randint(0, 1) == 1):
+                map[x][y] = '#'
+    return map
