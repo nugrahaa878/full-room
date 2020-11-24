@@ -19,17 +19,22 @@ class CSP(object):
         for i in range(len(self.board_answer)):
             print("".join(self.board_answer[i]))
 
-    def _is_safe(self, board, row, col):
+    def _is_safe(self, board, row, col, status=0):
         """
-        Tes langkah King (Orang Sehat)
+        Cek koordinat yang aman berdasarkan status.
+        Status 0 = Healthy
+        Status 1 = Sick
         """
-        steps = [-1, 0, 1]
+        steps = [-2, -1, 0, 1, 2]
+        if not status:
+            steps = steps[1:-1]
+
         for a in steps:
             for b in steps:
                 if row + a < 0 or row + a >= len(board) or col + b < 0 or col + b >= len(board):
                     continue
                 else:
-                    if board[row + a][col + b] == "X":
+                    if board[row + a][col + b] in "XY":
                         return False
         return True
 
@@ -72,8 +77,6 @@ class CSP(object):
         elif move_method == 1 or move_method == 3:
             return self.CSP(board, row, col - 1, move_method, counter)
 
-        # return False, counter, main_board
-
     def _debug_board(self, board):
         for i in range(len(board)):
             print("".join(board[i]))
@@ -81,17 +84,21 @@ class CSP(object):
     # Added graceful stop condition if all people have been positioned
     def CSP(self, main_board, row, col, move_method, counter):
         length = len(main_board)
+        status = 0  # Untuk mengindikasikan status seseorang
+
+        if counter >= self.healthy_people:
+            status = 1
 
         # Cek koordinat. Pindahkan pointer ke baris baru dan reset kolom
         row, col = self._check_coor(row, col, move_method)
 
         # Kalau sudah lewat batas, berarti solusi benar
-        if row >= length or row < 0 or counter == self.healthy_people:
+        if row >= length or row < 0 or counter == self.healthy_people + self.sick_people:
             return True, counter, main_board
 
         if main_board[row][col] == "_":
-            if self._is_safe(main_board, row, col):
-                main_board[row][col] = "X"
+            if self._is_safe(main_board, row, col, status):
+                main_board[row][col] = "Y" if status else "X"
                 counter += 1
 
                 temp_result, counter_we_get, main_board = self._move_pointer(
