@@ -73,15 +73,22 @@ function showHomePage() {
 }
 
 function validate() {
-    console.log($("#board-height").val())
     if ($("#board-height").val() != "" &&
         $("#board-width").val() != "" &&
         $("#board-normal").val() != "" &&
         $("#board-big").val() != "") {
         hideStepTwo();
+        createBoard();
         showBoard();
     }
     else {
         alert("Pastikan semua data terisi terlebih dahulu.");
     }
+}
+
+function createBoard() {
+    let height = $("#board-height").val();
+    let width = $("#board-width").val();
+    let board = new Board(height, width);
+    board.init();
 }

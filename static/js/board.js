@@ -29,8 +29,3 @@ Board.prototype.makeGrid = function () {
     let board = document.getElementById("board");
     board.innerHTML = tableHTML;
 }
-
-let height = Math.floor($(document).height() / 30);
-let width = Math.floor($(document).width() / 25);
-let newBoard = new Board(height, width)
-newBoard.init();
