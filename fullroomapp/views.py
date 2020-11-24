@@ -11,13 +11,21 @@ SAMPLE_MAP = [[0,0,0,1,1],
 
 def index(request):
     if request.method == 'POST':
-        board = solve_board(base_board_generator(int(request.POST['x-width']),
-                int(request.POST['y-length'])), int(request.POST['healthy']),
-                int(request.POST['sick']))
+        width = int(request.POST['x-width'])
+        length = int(request.POST['y-length'])
+        healthy = int(request.POST['healthy'])
+        sick = int(request.POST['sick'])
 
-        return render(request, 'index.html', {'map': board})
+        if guard(width) and guard(length) and guard(healthy) and guard(sick):
+            board = solve_board(base_board_generator(width, length), healthy, sick)
+            return render(request, 'index.html', {'map': board})
+        
+        return render(request, 'index.html', {'err_msg': 'Number values must be within range 1-50'})
 
     return render(request, 'index.html')
+
+def guard(guarded_int):
+    return guarded_int > 0 and guarded_int <= 50
 
 # Base board generator
 def base_board_generator(width, length):

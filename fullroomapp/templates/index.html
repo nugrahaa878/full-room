@@ -11,6 +11,9 @@
 <body>
     <h2>Full-Room</h2>
     <form method="POST">{% csrf_token %}
+        {% if err_msg != None %}
+            <b>{{ err_msg }}</b><br>
+        {% endif %}
         Lebar Ruangan (x): <input type="text" name="x-width" required="required"><br>
         Panjang Ruangan (y): <input type="text" name="y-length" required="required"><br>
         Jumlah orang sehat: <input type="number" name="healthy" required="required"><br>
