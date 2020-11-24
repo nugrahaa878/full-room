@@ -99,3 +99,15 @@ function createBoard() {
     board = new Board(height, width);
     board.init();
 }
+
+function toggleBoard(position) {
+    let element = $("#" + `${position}`);
+    if (element.hasClass("normal")) {
+        element.removeClass("normal");
+        element.addClass("obstacle");
+    }
+    else {
+        element.removeClass("obstacle");
+        element.addClass("normal");
+    }
+}
