@@ -152,6 +152,18 @@ def solve():
         print("Solution does not exist")
     else:
         csp._print_solution()
+
+def solve_for_healthy(board):
+    csp = CSP(board)
+    csp.run()
+
+    if csp.result == False: 
+        print("Solution does not exist")
+        return board
+    else:
+        csp._print_solution()
+    
+    return csp.board_answer
     
 
 if __name__ == "__main__":

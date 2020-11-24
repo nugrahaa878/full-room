@@ -1,5 +1,6 @@
 from django.shortcuts import render
 import random
+import fullroomapp.engine
 
 # SAMPLE MAP (For Testing Purposes)
 SAMPLE_MAP = [[0,0,0,1,1], 
@@ -10,11 +11,9 @@ SAMPLE_MAP = [[0,0,0,1,1],
 
 def index(request):
     if request.method == 'POST':
-        map = base_map_generator(int(request.POST['x-width']),
-                int(request.POST['y-length']))
-                
-        # Until parsed later, this shows the resulting map onto the terminal
-        print(map)
+        map = solve_map_healthy(base_map_generator(int(request.POST['x-width']),
+                int(request.POST['y-length'])))
+
         return render(request, 'index.html', {'map': map})
 
     return render(request, 'index.html')
@@ -29,4 +28,22 @@ def set_invalid_tiles(map):
         for y in range(len(map[x])):
             if (random.randint(0, 1) == 1):
                 map[x][y] = '#'
+    return map
+
+# For board/map preview asynchronous calls
+def map_preview(request):
+    if request.method == 'POST':
+        map = base_map_generator(int(request.POST['x-width']),
+                int(request.POST['y-length']))
+        return map
+    
+    return ["Invalid length and/or width!"]
+
+# For ease of engine method call for solving for healthy people
+def solve_map_healthy(map):
+    return fullroomapp.engine.solve_for_healthy(map)
+
+# For ease of engine method call for solving for sick people
+def solve_map_sick(map):
+    # Dummy, awaiting sick algorithm
     return map
