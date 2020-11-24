@@ -81,7 +81,7 @@ body {
 }
 
 .nav-step-1-container,
-.nav-step-2-container {
+.nav-step-2-container{
   text-align: center;
 }
 
@@ -90,6 +90,11 @@ body {
 }
 
 .step2-desc {
+  text-align: center;
+}
+
+.board-button-container {
+  display: none;
   text-align: center;
 }
 
@@ -103,6 +108,10 @@ body {
   border: 1px solid darkgrey;
   width: 30px;
   height: 30px;
+}
+
+.obstacle {
+  background-color: black;
 }
 
 /* Large devices (laptops/desktops, 992px and up) */

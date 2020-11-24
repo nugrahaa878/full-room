@@ -1,4 +1,4 @@
-import { validate } from "./form.js";
+let board;
 
 $(document).ready(function () {
 
@@ -23,9 +23,11 @@ $(document).ready(function () {
     });
 
     $(".step-2-next").click(function () {
-        hideStepTwo();
-        showBoard();
         validate();
+    });
+
+    $(".board-random").click(function () {
+        board.makeGrid();
     });
 
 });
@@ -55,6 +57,7 @@ function hideStepTwo() {
 }
 
 function showBoard() {
+    $(".board-button-container").show();
     $("#board").show();
 }
 
@@ -74,4 +77,43 @@ function hideHomePage() {
 function showHomePage() {
     $(".description-text").show();
     $(".my-button").show();
+}
+
+function validate() {
+    if ($("#board-height").val() != "" &&
+        $("#board-width").val() != "" &&
+        $("#board-normal").val() != "" &&
+        $("#board-big").val() != "") {
+        hideStepTwo();
+        createBoard();
+        showBoard();
+    }
+    else {
+        alert("Pastikan semua data terisi terlebih dahulu.");
+    }
+}
+
+function createBoard() {
+    let height = $("#board-height").val();
+    let width = $("#board-width").val();
+    board = new Board(height, width);
+    board.init();
+}
+
+function toggleBoard(position) {
+    let element = $("#" + `${position}`);
+    let coordinates = position.split("-");
+    let r = parseInt(coordinates[0]);
+    let c = parseInt(coordinates[1]);
+
+    if (element.hasClass("normal")) {
+        element.removeClass("normal");
+        element.addClass("obstacle");
+        board.boardArr[r][c] = "obstacle";
+    }
+    else {
+        element.removeClass("obstacle");
+        element.addClass("normal");
+        board.boardArr[r][c] = "normal";
+    }
 }
