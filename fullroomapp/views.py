@@ -12,7 +12,7 @@ SAMPLE_MAP = [[0,0,0,1,1],
 def index(request):
     if request.method == 'POST':
         map = solve_map_healthy(base_map_generator(int(request.POST['x-width']),
-                int(request.POST['y-length'])))
+                int(request.POST['y-length'])), int(request.POST['healthy']))
 
         return render(request, 'index.html', {'map': map})
 
@@ -40,8 +40,8 @@ def map_preview(request):
     return ["Invalid length and/or width!"]
 
 # For ease of engine method call for solving for healthy people
-def solve_map_healthy(map):
-    return fullroomapp.engine.solve_for_healthy(map)
+def solve_map_healthy(map, people):
+    return fullroomapp.engine.solve_for_healthy(map, people)
 
 # For ease of engine method call for solving for sick people
 def solve_map_sick(map):

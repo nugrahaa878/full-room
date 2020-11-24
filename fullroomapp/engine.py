@@ -56,16 +56,16 @@ class CSP(object):
 
         return row, col
 
-    def _move_pointer(self, board, row, col, move_method, counter):
+    def _move_pointer(self, board, row, col, move_method, counter, people):
         """
         Fungsi untuk meng-handle pergerakan pointer sesuai dengan
         move method nya
         """
         if move_method == 0 or move_method == 2:
-            return self.CSP(board, row, col + 1, move_method, counter)
+            return self.CSP(board, row, col + 1, move_method, counter, people)
         
         elif move_method == 1 or move_method == 3:
-            return self.CSP(board, row, col - 1, move_method, counter)
+            return self.CSP(board, row, col - 1, move_method, counter, people)
 
         # return False, counter, main_board
 
@@ -73,14 +73,15 @@ class CSP(object):
         for i in range(len(board)):
             print("".join(board[i]))
 
-    def CSP(self, main_board, row, col, move_method, counter):
+    # Added graceful stop condition if all people have been positioned
+    def CSP(self, main_board, row, col, move_method, counter, people):
         length = len(main_board)
 
         # Cek koordinat. Pindahkan pointer ke baris baru dan reset kolom
         row, col = self._check_coor(row, col, move_method)
 
         # Kalau sudah lewat batas, berarti solusi benar
-        if row >= length or row < 0:
+        if row >= length or row < 0 or counter == people:
             return True, counter, main_board
 
         if main_board[row][col] == "_":
@@ -89,7 +90,7 @@ class CSP(object):
                 counter += 1
 
                 temp_result, counter_we_get, main_board = self._move_pointer(
-                    main_board, row, col, move_method, counter)
+                    main_board, row, col, move_method, counter, people)
                 if temp_result == True:
                     return True, counter_we_get, main_board
 
@@ -97,14 +98,14 @@ class CSP(object):
                 main_board[row][col] = "_"
                 counter -= 1
             else:
-                return self._move_pointer(main_board, row, col, move_method, counter)
+                return self._move_pointer(main_board, row, col, move_method, counter, people)
 
         elif main_board[row][col] == "#":
-            return self._move_pointer(main_board, row, col, move_method, counter)
+            return self._move_pointer(main_board, row, col, move_method, counter, people)
 
         return False, counter, main_board
 
-    def run(self):
+    def run(self, people):
         """
         Function untuk menjalankan alforitma CSP
         """
@@ -124,7 +125,7 @@ class CSP(object):
         for method in range(4):
             main_board = deepcopy(self.board)
             row, col = start_point[method]
-            result, total, board_result = self.CSP(main_board, row, col, method, 0)
+            result, total, board_result = self.CSP(main_board, row, col, method, 0, people)
             print(f"total using method {method}: {total}")
 
             if total > max_total and result:
@@ -146,16 +147,16 @@ def solve():
     ]
 
     csp = CSP(board)
-    csp.run()
+    csp.run(2)
 
     if csp.result == False: 
         print("Solution does not exist")
     else:
         csp._print_solution()
 
-def solve_for_healthy(board):
+def solve_for_healthy(board, people):
     csp = CSP(board)
-    csp.run()
+    csp.run(people)
 
     if csp.result == False: 
         print("Solution does not exist")
