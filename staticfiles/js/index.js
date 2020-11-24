@@ -10,14 +10,19 @@ $(document).ready(function () {
         showHomePage();
     });
 
-    $(".step-1-next").click(function() {
+    $(".step-1-next").click(function () {
         hideStepOne();
         showStepTwo();
     });
 
-    $(".step-2-back").click(function() {
+    $(".step-2-back").click(function () {
         hideStepTwo();
         showStepOne();
+    });
+
+    $(".step-2-next").click(function () {
+        hideStepTwo();
+        showBoard();
     });
 
 });
@@ -44,6 +49,10 @@ function hideStepTwo() {
     $(".step2-desc").hide();
     $(".form-2").hide();
     $(".nav-step-2").hide();
+}
+
+function showBoard() {
+    $("#board").show();
 }
 
 function showStepTwo() {

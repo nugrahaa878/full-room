@@ -81,8 +81,7 @@ body {
 }
 
 .nav-step-1-container,
-.nav-step-2-container,
-.nav-board-container {
+.nav-step-2-container {
   text-align: center;
 }
 
@@ -95,6 +94,7 @@ body {
 }
 
 #board {
+  display: none;
   margin-left: 5px;
   margin-right: 5px;
 }

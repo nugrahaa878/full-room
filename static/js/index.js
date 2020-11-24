@@ -20,6 +20,11 @@ $(document).ready(function () {
         showStepOne();
     });
 
+    $(".step-2-next").click(function () {
+        hideStepTwo();
+        showBoard();
+    });
+
 });
 
 function hideStepOne() {
@@ -44,6 +49,10 @@ function hideStepTwo() {
     $(".step2-desc").hide();
     $(".form-2").hide();
     $(".nav-step-2").hide();
+}
+
+function showBoard() {
+    $("#board").show();
 }
 
 function showStepTwo() {
