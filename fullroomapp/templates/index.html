@@ -41,8 +41,7 @@
 
     <div class="form-container">
 
-        <form method="post">
-            
+        <form method="POST">
             {% csrf_token %}
             {% if err_msg != None %}
             <b>{{ err_msg }}</b><br>
@@ -57,10 +56,12 @@
                 <div class="step1-form">
                     <p class="step1-desc">Masukkan panjang dan lebar ruangan</p>
                     <div class="form-group form-1">
-                        <input type="number" class="form-control" id="board-height" name="y-length"
+                        <!-- <input type="number" class="form-control" id="board-height" name="y-length"
                             placeholder="Panjang" required>
                         <input type="number" class="form-control" id="board-width" name="x-width" placeholder="Lebar"
-                            required>
+                            required> -->
+                        {{roomdata_form.width}}
+                        {{roomdata_form.length}}
                     </div>
                     <div class="nav-step-1-container">
                         <button type="button" class="btn btn-warning nav-step-1 step-1-back">Back</button>
@@ -78,14 +79,16 @@
                 <div class="step2-form">
                     <p class="step2-desc">Masukkan banyak orang yang akan masuk ke dalam ruangan</p>
                     <div class="form-group form-2">
-                        <input type="number" class="form-control" id="board-normal" name="healthy" placeholder="Sehat"
+                        <!-- <input type="number" class="form-control" id="board-normal" name="healthy" placeholder="Sehat"
                             required>
                         <input type="number" class="form-control" id="board-big" name="sick" placeholder="Sakit"
-                            required>
+                            required> -->
+                        {{roomdata_form.healthy}}
+                        {{roomdata_form.sick}}
                     </div>
                     <div class="nav-step-2-container">
                         <button type="button" class="btn btn-warning nav-step-2 step-2-back">Back</button>
-                        <button type="button" class="btn btn-success nav-step-2 step-2-next">Next</button>
+                        <input type="submit" class="btn btn-success nav-step-2 step-2-next" value="SUBMIT">
                     </div>
                 </div>
             </div>
