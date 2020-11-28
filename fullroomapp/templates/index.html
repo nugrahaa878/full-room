@@ -39,59 +39,70 @@
         <button class="my-button button-about">ABOUT</button>
     </div>
 
-    <div class="step1-container d-flex flex-column align-items-center ">
-        <div class="step1-logo d-flex flex-row align-items-center">
-            <img class="panah-1" src="{% static 'assets/polygon.png' %}" alt="Polygon">
-            <h1 class="step1-text">STEP 1</h1>
-        </div>
+    <div class="form-container">
 
-        <div class="step1-form">
-            <p class="step1-desc">Masukkan panjang dan lebar ruangan</p>
-            <form action="" class="form-1">
-                <div class="form-group">
-                    <input type="number" class="form-control" id="board-height" placeholder="Panjang" required>
-                    <input type="number" class="form-control" id="board-width" placeholder="Lebar" required>
+        <form method="post">
+            
+            {% csrf_token %}
+            {% if err_msg != None %}
+            <b>{{ err_msg }}</b><br>
+            {% endif %}
+
+            <div class="step1-container d-flex flex-column align-items-center ">
+                <div class="step1-logo d-flex flex-row align-items-center">
+                    <img class="panah-1" src="{% static 'assets/polygon.png' %}" alt="Polygon">
+                    <h1 class="step1-text">STEP 1</h1>
                 </div>
-            </form>
-            <div class="nav-step-1-container">
-                <button type="button" class="btn btn-warning nav-step-1 step-1-back">Back</button>
-                <button type="button" class="btn btn-success nav-step-1 step-1-next">Next</button>
-            </div>
-        </div>
-    </div>
 
-    <div class="d-flex flex-column align-items-center step2-container">
-        <div class="step2-logo d-flex flex-row align-items-center">
-            <img class="panah-2" src="{% static 'assets/polygon.png' %}" alt="Polygon">
-            <h1 class="step2-text">STEP 2</h1>
-        </div>
-
-        <div class="step2-form">
-            <p class="step2-desc">Masukkan banyak orang yang akan masuk ke dalam ruangan</p>
-            <form action="" class="form-2">
-                <div class="form-group">
-                    <input type="number" class="form-control" id="board-normal" placeholder="Normal" required>
-                    <input type="number" class="form-control" id="board-big" placeholder="Besar" required>
+                <div class="step1-form">
+                    <p class="step1-desc">Masukkan panjang dan lebar ruangan</p>
+                    <div class="form-group form-1">
+                        <input type="number" class="form-control" id="board-height" name="y-length"
+                            placeholder="Panjang" required>
+                        <input type="number" class="form-control" id="board-width" name="x-width" placeholder="Lebar"
+                            required>
+                    </div>
+                    <div class="nav-step-1-container">
+                        <button type="button" class="btn btn-warning nav-step-1 step-1-back">Back</button>
+                        <button type="button" class="btn btn-success nav-step-1 step-1-next">Next</button>
+                    </div>
                 </div>
-            </form>
-            <div class="nav-step-2-container">
-                <button type="button" class="btn btn-warning nav-step-2 step-2-back">Back</button>
-                <button type="button" class="btn btn-success nav-step-2 step-2-next">Next</button>
             </div>
-        </div>
-    </div>
 
+            <div class="d-flex flex-column align-items-center step2-container">
+                <div class="step2-logo d-flex flex-row align-items-center">
+                    <img class="panah-2" src="{% static 'assets/polygon.png' %}" alt="Polygon">
+                    <h1 class="step2-text">STEP 2</h1>
+                </div>
 
-    <div class="d-flex flex-column align-items-center board-container">
-        <table id="board">
-        </table>
+                <div class="step2-form">
+                    <p class="step2-desc">Masukkan banyak orang yang akan masuk ke dalam ruangan</p>
+                    <div class="form-group form-2">
+                        <input type="number" class="form-control" id="board-normal" name="healthy" placeholder="Sehat"
+                            required>
+                        <input type="number" class="form-control" id="board-big" name="sick" placeholder="Sakit"
+                            required>
+                    </div>
+                    <div class="nav-step-2-container">
+                        <button type="button" class="btn btn-warning nav-step-2 step-2-back">Back</button>
+                        <button type="button" class="btn btn-success nav-step-2 step-2-next">Next</button>
+                    </div>
+                </div>
+            </div>
 
-        <div class="board-button-container">
-            <button type="button" class="btn btn-warning board-random">Random!</button>
-            <button type="button" class="btn btn-warning board-submit">Submit</button>
-        </div>
+            <div class="d-flex flex-column align-items-center board-container">
+                <table id="board">
+                </table>
+        
+                <div class="board-button-container">
+                    <button type="button" class="btn btn-warning board-random">Random!</button>
+                    <input type="submit" value="SUBMIT" class="btn btn-warning board-submit">
+                </div>
+        
+                <button type="button" class="btn btn-primary btn-edit-size">Edit Size</button>
+            </div>
+        </form>
 
-        <button type="button" class="btn btn-primary btn-edit-size">Edit Size</button>
     </div>
 
     <!-- jQuery and Bootstrap Bundle (includes Popper) -->
@@ -104,11 +115,4 @@
     <script src="{% static 'js/index.js' %}"></script>
     <script src="{% static 'js/board.js' %}"></script>
 
-    <!-- <form method="POST">{% csrf_token %}
-        Lebar Ruangan (x): <input type="text" name="x-width">
-        Panjang Ruangan (y): <input type="text" name="y-length"><br>
-        Jumlah orang berberat badan normal: <input type="number" name="normal-weight"><br>
-        Jumlah orang berberat badan tinggi: <input type="number" name="heavy-weight">
-        <input type="submit" value="SUBMIT">
-    </form> -->
 </body>
