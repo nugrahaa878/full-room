@@ -13,18 +13,6 @@ SAMPLE_MAP = [[0,0,0,1,1],
               [1,0,0,0,0]]
 
 def index(request):
-    # if request.method == 'POST':
-    #     width = int(request.POST['x-width'])
-    #     length = int(request.POST['y-length'])
-    #     healthy = int(request.POST['healthy'])
-    #     sick = int(request.POST['sick'])
-
-    #     if guard(width) and guard(length) and guard(healthy) and guard(sick):
-    #         board = solve_board(base_board_generator(width, length), healthy, sick)
-    #         return render(request, 'index.html', {'map': board})
-        
-    #     return render(request, 'index.html', {'err_msg': 'Number values must be within range 1-50'})
-
     roomdata_form = RoomDataForm(request.POST or None)
 
     if request.method == "POST":
@@ -47,6 +35,7 @@ def generateMap(request):
     mapSick = data.sick
     mapRoom = base_board_generator(mapWidth, mapLength)
 
+    # debug
     for item in mapRoom:
         for item2 in item:
             print(item2, end=" ")
@@ -54,9 +43,31 @@ def generateMap(request):
     
     if request.method == "POST":    
         board = solve_board(mapRoom, mapHealthy, mapSick)
-        return redirect('home')
+        request.session['map_result'] = board
+        return redirect('result')
 
-    return render(request, 'generate.html')
+    context = {
+        'random_map': mapRoom
+    }
+
+    return render(request, 'generate.html', context)
+
+def result(request):
+    map = request.session.get('map_result')
+    print("Ini map result :")
+
+    # debug
+    for row in map:
+        for i in row:
+            print(i, end=" ")
+        print()
+
+    context = {
+        'map': map
+    }
+
+    return render(request, 'result.html', context)
+
 
 def guard(guarded_int):
     return guarded_int > 0 and guarded_int <= 50

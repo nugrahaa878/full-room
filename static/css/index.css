@@ -50,6 +50,14 @@ body {
   display: none;
 }
 
+.generate-text,
+.result-text {
+  font-weight: bolder;
+  font-size: 30px;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
 .step1-desc,
 .step2-desc {
   margin-top: 30px;
@@ -94,7 +102,6 @@ body {
 }
 
 .board-button-container {
-  display: none;
   text-align: center;
   margin-top: 20px;
 }
@@ -126,6 +133,11 @@ body {
 
 .btn-edit-size {
   display: none;
+}
+
+.map-container {
+  margin: auto;
+  width: fit-content;
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
