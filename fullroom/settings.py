@@ -85,11 +85,12 @@ DATABASES = {
     }
 }
 
-PRODUCTION = os.environ.get('DATABASE_URL') is not None
-if PRODUCTION:
-    DEBUG = False
-    SECURE_SSL_REDIRECT = True
+# PRODUCTION = os.environ.get('DATABASE_URL') is not None
+# if PRODUCTION:
+#     DEBUG = False
+#     SECURE_SSL_REDIRECT = True
 
+DEBUG = True
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
