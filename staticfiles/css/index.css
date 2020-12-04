@@ -31,7 +31,8 @@ body {
   margin-top: 15px;
 }
 
-.button-start {
+.button-start,
+.button-again {
   margin-top: 20px;
   padding: 5px 42px;
 }
@@ -138,6 +139,23 @@ body {
 .map-container {
   margin: auto;
   width: fit-content;
+}
+
+.img_result {
+  height: 40px;
+  width: 40px;
+}
+
+.metal {
+  width: 40px;
+}
+
+.board-container {
+  margin-bottom: 100px;
+}
+
+.button-again {
+  margin-bottom: 100px;
 }
 
 /* Large devices (laptops/desktops, 992px and up) */

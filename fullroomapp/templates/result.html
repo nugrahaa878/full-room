@@ -34,7 +34,15 @@
         {% for row in map %}
             {% for item in row %}
             
-                {{item}}
+                {% if item == "#" %}
+                    <img src="{% static 'assets/red_barrier.png' %}" class="img_result" alt="Responsive Image">
+                {% elif item == "X"%}
+                    <img src="{% static 'assets/man.png' %}" class="img_result" alt="Responsive Image">
+                {% elif item == "Y"%}
+                    <img src="{% static 'assets/zombie.png' %}" class="img_result" alt="Responsive Image">
+                {% else %}
+                    <img src="{% static 'assets/metal.png' %}" class="metal" alt="Responsive Image">
+                {% endif %}
 
             {% endfor %}
             <br>
@@ -42,10 +50,7 @@
     </div>
 
     <div class="start-container d-flex justify-content-center">
-        <form method="POST">
-            {% csrf_token %}
-            <input type="submit" value="SUBMIT" class="my-button button-start">
-        </form>
+        <a href="/" class="button-again"><button class="my-button button-again">AGAIN</button></a>
     </div>
 
     <!-- jQuery and Bootstrap Bundle (includes Popper) -->
