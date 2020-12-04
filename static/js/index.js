@@ -92,10 +92,10 @@ function showHomePage() {
 }
 
 function validate() {
-    if ($("#board-height").val() != "" &&
-        $("#board-width").val() != "" &&
-        $("#board-normal").val() != "" &&
-        $("#board-big").val() != "") {
+    if ($("#id_length").val() != "" &&
+        $("#id_width").val() != "" &&
+        $("#id_healthy").val() != "" &&
+        $("#id_sick").val() != "") {
         hideStepTwo();
         createBoard();
         showBoard();
@@ -106,26 +106,24 @@ function validate() {
 }
 
 function createBoard() {
-    let height = $("#board-height").val();
-    let width = $("#board-width").val();
+    let height = $("#id_length").val();
+    let width = $("#id_width").val();
     board = new Board(height, width);
     board.init();
 }
 
 function toggleBoard(position) {
-    let element = $("#" + `${position}`);
+    let element = $("#" + `${position} > img`);
     let coordinates = position.split("-");
     let r = parseInt(coordinates[0]);
     let c = parseInt(coordinates[1]);
 
-    if (element.hasClass("normal")) {
-        element.removeClass("normal");
-        element.addClass("obstacle");
-        board.boardArr[r][c] = "obstacle";
+    if (element.attr("src") == `${IMG_BARRIER}`) {
+        element.attr("src", IMG_METAL);
+        board.boardArr[r][c] = "normal";
     }
     else {
-        element.removeClass("obstacle");
-        element.addClass("normal");
-        board.boardArr[r][c] = "normal";
+        element.attr("src", IMG_BARRIER);
+        board.boardArr[r][c] = "obstacle";
     }
 }

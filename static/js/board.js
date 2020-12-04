@@ -16,7 +16,7 @@ Board.prototype.init = function () {
 // Create grid with randomize obstacles
 Board.prototype.makeGrid = function () {
     let tableHTML = "";
-    var myArray = []
+    var myArray = [];
 
     for (let r = 0; r < this.height; r++) {
         let curRow = [];
@@ -24,8 +24,10 @@ Board.prototype.makeGrid = function () {
         for (let c = 0; c < this.width; c++) {
             let node = `${r}-${c}`;
             let status = ["normal", "obstacle"].random();
+            let img_src = (status == "normal") ? IMG_METAL : IMG_BARRIER;
+
             curRow.push(status);
-            curHTMLRow += `<td id="${node}" class="${status}" onclick="toggleBoard('${node}')"></td>`;
+            curHTMLRow += `<td id="${node}" onclick="toggleBoard('${node}')"><img src="${img_src}" class="metal" alt="Responsive Image"/></td>`;
         }
         this.boardArr.push(curRow);
         myArray.push(toArray(curRow));

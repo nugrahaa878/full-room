@@ -116,22 +116,6 @@ body {
   margin-bottom: 100px;
 }
 
-#board {
-  display: none;
-  margin-left: 5px;
-  margin-right: 5px;
-}
-
-#board td {
-  border: 1px solid darkgrey;
-  width: 30px;
-  height: 30px;
-}
-
-.obstacle {
-  background-color: black;
-}
-
 .btn-edit-size {
   display: none;
 }
