@@ -5,12 +5,6 @@ from .models import RoomData
 import random
 import fullroomapp.engine
 
-# SAMPLE MAP (For Testing Purposes)
-SAMPLE_MAP = [[0,0,0,1,1], 
-              [0,1,1,0,0], 
-              [0,1,1,1,0], 
-              [0,0,0,0,0],
-              [1,0,0,0,0]]
 
 def index(request):
     roomdata_form = RoomDataForm(request.POST or None)
