@@ -53,17 +53,17 @@ def generateMap(request):
     return render(request, 'generate.html', context)
 
 def result(request):
-    map = request.session.get('map_result')
+    mymap = request.session.get('map_result')
     print("Ini map result :")
 
     # debug
-    for row in map:
+    for row in mymap:
         for i in row:
             print(i, end=" ")
         print()
 
     context = {
-        'map': map
+        'map': mymap
     }
 
     return render(request, 'result.html', context)
