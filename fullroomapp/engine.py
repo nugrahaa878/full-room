@@ -122,11 +122,12 @@ class CSP(object):
         Function untuk menjalankan alforitma CSP
         """
         board_length = len(self.board)
+        board_width = len(self.board[0])
         start_point = [
             (0, 0),
-            (0, board_length - 1),
+            (0, board_width - 1),
             (board_length - 1, 0),
-            (board_length - 1, board_length - 1)
+            (board_length - 1, board_width - 1)
         ]
 
         max_total = -1
