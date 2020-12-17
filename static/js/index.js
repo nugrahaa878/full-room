@@ -3,7 +3,6 @@ let board;
 $(document).ready(function () {
 
     $(".generate-text").hide();
-    $(".board-submit").hide();
     $(".submit-map").hide();
 
     $(".button-start").click(function () {

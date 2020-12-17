@@ -10,10 +10,10 @@ def index(request):
     roomdata_form = RoomDataForm(request.POST or None)
 
     if request.method == "POST":
-        print(request.POST)
         if roomdata_form.is_valid():
             roomdata_form.save()
-
+            request.session['user_map'] = request.POST['boardMap'].split(',')
+            print(request.session['user_map'])
             return redirect('generate')
 
     context = {
@@ -32,20 +32,24 @@ def generateMap(request):
         request.session['map_result'] = board
         return redirect('result')
 
-    
     mapWidth = data.width
     mapLength = data.length
     mapRoom = base_board_generator(mapWidth, mapLength)
-    request.session['map_result'] = mapRoom
+
+    if request.session['user_map'] != None:
+        request.session['map_result'] = nest_list(request.session['user_map'],mapLength, mapWidth)
+        request.session['user_map'] = None
+    else:
+        request.session['map_result'] = mapRoom
 
     # debug
-    for item in mapRoom:
+    for item in request.session['map_result']:
         for item2 in item:
             print(item2, end=" ")
         print()
 
     context = {
-        'random_map': mapRoom
+        'random_map': request.session['map_result']
     }
 
     return render(request, 'generate.html', context)
@@ -94,3 +98,13 @@ def board_preview(request):
 # To solve the board
 def solve_board(board, healthy_people, sick_people):
     return fullroomapp.engine.solve_for_healthy(board, healthy_people, sick_people)
+
+def nest_list(list1,rows, columns):    
+    result=[]               
+    start = 0
+    end = columns
+    for i in range(rows): 
+        result.append(list1[start:end])
+        start +=columns
+        end += columns
+    return result
