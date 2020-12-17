@@ -162,4 +162,4 @@ def solve_for_healthy(board, healthy_people, sick_people):
     else:
         csp._print_solution()
     
-    return csp.board_answer
+    return [csp.board_answer, csp.remaining_people]

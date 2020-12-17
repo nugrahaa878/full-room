@@ -28,8 +28,9 @@ def generateMap(request):
     mapSick = data.sick
 
     if request.method == "POST":    
-        board = solve_board(request.session['map_result'], mapHealthy, mapSick)
+        [board, remaining_people] = solve_board(request.session['map_result'], mapHealthy, mapSick)
         request.session['map_result'] = board
+        request.session['remaining_people'] = remaining_people
         return redirect('result')
 
     mapWidth = data.width
@@ -56,6 +57,7 @@ def generateMap(request):
 
 def result(request):
     mymap = request.session.get('map_result')
+    remaining_people = request.session.get('remaining_people')
     print("Ini map result :")
 
     # debug
@@ -65,7 +67,8 @@ def result(request):
         print()
 
     context = {
-        'map': mymap
+        'map': mymap,
+        'remaining_people': remaining_people
     }
 
     return render(request, 'result.html', context)
