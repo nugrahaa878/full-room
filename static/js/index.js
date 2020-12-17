@@ -4,6 +4,12 @@ $(document).ready(function () {
 
     $(".generate-text").hide();
     $(".submit-map").hide();
+    $(".description-about").hide();
+
+    $(".button-about").click(function () {
+        hideHomePage();
+        $(".description-about").show();
+    });
 
     $(".button-start").click(function () {
         hideHomePage();
