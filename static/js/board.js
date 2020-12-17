@@ -29,10 +29,11 @@ Board.prototype.makeGrid = function () {
             curRow.push(status);
             curHTMLRow += `<td id="${node}" onclick="toggleBoard('${node}')"><img src="${img_src}" class="metal" alt="Responsive Image"/></td>`;
         }
-        this.boardArr.push(curRow);
         myArray.push(toArray(curRow));
         tableHTML += `${curHTMLRow}</tr>`;
     }
+    this.boardArr.push(myArray);
+    $("#boardMap").val(this.boardArr);
     let board = document.getElementById("board");
     board.innerHTML = tableHTML;
     return myArray;
@@ -43,7 +44,7 @@ Array.prototype.random = function () {
 }
 
 function toArray(mArray) {
-    var newArr = []
+    var newArr = [];
     mArray.forEach(element => {
         if (element == "normal") {
             newArr.push("_");

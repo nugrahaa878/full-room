@@ -93,11 +93,19 @@
                     </div>
                 </div>
             </div>
+            <div class="d-flex flex-column align-items-center board-container">
+                <div class="description-container d-flex justify-content-center ">
+                    <h1 class="generate-text">GENERATE MAP</h1>
+                </div>
+                <table id="board" class="map-container">
+                </table>
+                
+                <input name="boardMap" id="boardMap" style="display: none;" value=""/>
+                <div class="d-flex flex-column align-items-center board-container">
+                    <button type="submit" class="btn btn-warning submit-map" value="SUBMIT">Submit</button>
+                </div>
+            </div>
         </form>
-        <div class="d-flex flex-column align-items-center board-container">
-            <table id="board" class="map-container">
-            </table>
-        </div>
 
     </div>
 
@@ -111,6 +119,7 @@
     <script>
         const IMG_BARRIER = "{% static 'assets/red_barrier.png' %}";
         const IMG_METAL = "{% static 'assets/metal.png' %}";
+        const TOKEN="{{ csrf_token }}";
     </script>
 
 </body>

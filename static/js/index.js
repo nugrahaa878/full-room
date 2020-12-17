@@ -2,6 +2,10 @@ let board;
 
 $(document).ready(function () {
 
+    $(".generate-text").hide();
+    $(".board-submit").hide();
+    $(".submit-map").hide();
+
     $(".button-start").click(function () {
         hideHomePage();
         showStepOne();
@@ -62,13 +66,18 @@ function hideStepTwo() {
 }
 
 function showBoard() {
-    $(".board-button-container").show();
+    $(".generate-text").show();
+    $(".submit-map").show();
+    $(".board-submit").show();
     $("#board").show();
     $(".btn-edit-size").show();
 }
 
 function hideBoard() {
-    $(".board-button-container").hide();
+    $(".generate-text").hide();
+    $(".submit-map").hide();
+    $(".board-submit").hide();
+    $(".btn-edit-size").hide();
     $("#board").hide();
     $(".btn-edit-size").hide();
 }
@@ -120,10 +129,12 @@ function toggleBoard(position) {
 
     if (element.attr("src") == `${IMG_BARRIER}`) {
         element.attr("src", IMG_METAL);
-        board.boardArr[r][c] = "normal";
+        board.boardArr[0][r][c] = "_";
     }
     else {
         element.attr("src", IMG_BARRIER);
-        board.boardArr[r][c] = "obstacle";
+        board.boardArr[0][r][c] = "#";
     }
+    console.log(board.boardArr);
+    $("#boardMap").val(board.boardArr);
 }

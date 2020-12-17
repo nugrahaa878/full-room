@@ -16,6 +16,7 @@ def index(request):
     roomdata_form = RoomDataForm(request.POST or None)
 
     if request.method == "POST":
+        print(request.POST)
         if roomdata_form.is_valid():
             roomdata_form.save()
 
