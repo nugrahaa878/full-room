@@ -5,12 +5,6 @@ from .models import RoomData
 import random
 import fullroomapp.engine
 
-# SAMPLE MAP (For Testing Purposes)
-SAMPLE_MAP = [[0,0,0,1,1], 
-              [0,1,1,0,0], 
-              [0,1,1,1,0], 
-              [0,0,0,0,0],
-              [1,0,0,0,0]]
 
 def index(request):
     roomdata_form = RoomDataForm(request.POST or None)
@@ -30,22 +24,25 @@ def index(request):
 
 def generateMap(request):
     data = RoomData.objects.last()
-    mapWidth = data.width
-    mapLength = data.length
     mapHealthy = data.healthy
     mapSick = data.sick
+
+    if request.method == "POST":    
+        board = solve_board(request.session['map_result'], mapHealthy, mapSick)
+        request.session['map_result'] = board
+        return redirect('result')
+
+    
+    mapWidth = data.width
+    mapLength = data.length
     mapRoom = base_board_generator(mapWidth, mapLength)
+    request.session['map_result'] = mapRoom
 
     # debug
     for item in mapRoom:
         for item2 in item:
             print(item2, end=" ")
         print()
-    
-    if request.method == "POST":    
-        board = solve_board(mapRoom, mapHealthy, mapSick)
-        request.session['map_result'] = board
-        return redirect('result')
 
     context = {
         'random_map': mapRoom

@@ -38,7 +38,7 @@ class CSP(object):
                         return False
         return True
 
-    def _check_coor(self, row, col, move_method) -> (int, int):
+    def _reset_coor(self, row, col, move_method) -> (int, int):
         """
         Fungsi untuk cek koordinat pergerakan pointer
         karena kita menggunakan 4 arah.
@@ -90,7 +90,7 @@ class CSP(object):
             status = 1
 
         # Cek koordinat. Pindahkan pointer ke baris baru dan reset kolom
-        row, col = self._check_coor(row, col, move_method)
+        row, col = self._reset_coor(row, col, move_method)
 
         # Kalau sudah lewat batas, berarti solusi benar
         if row >= length or row < 0 or counter == self.healthy_people + self.sick_people:
