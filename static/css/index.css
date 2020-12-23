@@ -150,6 +150,35 @@ body {
   margin-top: 30px;
 }
 
+.about-logo {
+  max-width: 25%;
+  height: auto;
+}
+
+.description-container {
+  margin: auto;
+  align-items: center;
+  text-align: center;
+  color: #207dbe;
+  margin-top: 20px;
+}
+
+.description-container h1 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.name-container p {
+  display: inline-block;
+  margin: 0 10px;
+  color: black;
+}
+
+.name-container span {
+  font-size: 15px;
+  font-style: italic;
+  color: #207dbe;
+}
+
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
   .description-text {

@@ -4,11 +4,11 @@ $(document).ready(function () {
 
     $(".generate-text").hide();
     $(".submit-map").hide();
-    $(".description-about").hide();
+    $(".description-container").hide();
 
     $(".button-about").click(function () {
         hideHomePage();
-        $(".description-about").show();
+        $(".description-container").show();
     });
 
     $(".button-start").click(function () {
