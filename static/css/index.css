@@ -23,7 +23,8 @@ body {
   text-align: center;
 }
 
-.my-button {
+.my-button,
+.button-gohome {
   border-radius: 5px;
   background-color: transparent;
   color: #207dbe;
@@ -178,6 +179,11 @@ body {
   font-style: italic;
   color: #207dbe;
 }
+
+.btn-light {
+  margin-top: 50px !important;
+}
+
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
