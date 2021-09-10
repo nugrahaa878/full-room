@@ -12,6 +12,6 @@ pyflakes==2.2.0
 python-dotenv==0.14.0
 pytz==2020.1
 selenium==3.141.0
-sqlparse==0.4.1
+sqlparse==0.4.2
 urllib3==1.26.2
 whitenoise==5.2.0
